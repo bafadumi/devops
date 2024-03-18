@@ -4,6 +4,7 @@ import { CodePipeline, CodePipelineSource, ShellStep } from 'aws-cdk-lib/pipelin
 
 const GITHUB_SOURCE_REPO = 'bafadumi/devops';
 
+const CDK_OUT_DIRECTORY = './devopss/cdk.out/'
 export class PipelineStack extends cdk.Stack {
     constructor(scope: Construct, id: string, props?: cdk.StackProps) {
         super(scope, id, props);
@@ -15,6 +16,7 @@ export class PipelineStack extends cdk.Stack {
                     authentication: cdk.SecretValue.secretsManager('my-secret-token'),
                 }),
                 commands: ['npm ci', 'npm run build'],
+                primaryOutputDirectory: CDK_OUT_DIRECTORY,
             }),
         });
     }
