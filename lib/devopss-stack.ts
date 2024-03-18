@@ -5,7 +5,6 @@ import { Construct } from 'constructs';
 export class DevopssStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
-    'he'
 
   }
 }
