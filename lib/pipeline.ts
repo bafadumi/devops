@@ -11,7 +11,7 @@ export class PipelineStack extends cdk.Stack {
         const pipeline = new CodePipeline(this, 'Pipeline', {
             pipelineName: 'DevOpsAssignmentPipeline',
             synth: new ShellStep('Synth', {
-                input: CodePipelineSource.gitHub(GITHUB_SOURCE_REPO, 'main'),
+                input: CodePipelineSource.gitHub(GITHUB_SOURCE_REPO, 'origin/main'),
                 commands: ['npm ci', 'npm run build', 'npx cdk synth'],
             }),
         });
