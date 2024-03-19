@@ -28,8 +28,11 @@ export const unWrappedHandler = async (
             parseSchema(getSchema, event.body);
             return await getAllIdeas(client, tableName);
         } catch (error) {
-            console.log(error);
-            return errorResponse(error);
+            if (typeof error == "string") {
+                console.log(error);
+                return errorResponse(error);
+            }
+            throw error;
         }
     }
 
@@ -39,8 +42,11 @@ export const unWrappedHandler = async (
 
             return await addIdea(request, client, tableName);
         } catch (error) {
-            console.log(error);
-            return errorResponse(error);
+            if (typeof error == "string") {
+                console.log(error);
+                return errorResponse(error);
+            }
+            throw error;
         }
     }
 
@@ -55,8 +61,11 @@ export const unWrappedHandler = async (
 
             return await updateIdea(request, client, tableName);
         } catch (error) {
-            console.log(error);
-            return errorResponse(error);
+            if (typeof error == "string") {
+                console.log(error);
+                return errorResponse(error);
+            }
+            throw error;
         }
     }
 
@@ -70,8 +79,11 @@ export const unWrappedHandler = async (
             console.log(request);
             return await deleteIdea(request, client, tableName);
         } catch (error) {
-            console.log(error);
-            return errorResponse(error);
+            if (typeof error == "string") {
+                console.log(error);
+                return errorResponse(error);
+            }
+            throw error;
         }
     }
 
